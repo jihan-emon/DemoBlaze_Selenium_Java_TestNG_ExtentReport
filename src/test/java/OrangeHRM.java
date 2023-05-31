@@ -1,3 +1,6 @@
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -24,9 +27,10 @@ public class OrangeHRM {
     //static  String BaseURL = "https://opensource-demo.orangehrmlive.com/";
     static  String BaseURL = "https://jpg2pdf.com/";
     static JavascriptExecutor js;
+    private ExtentReports extent;
 
     @BeforeTest
-    public  static void WebSetup() throws InterruptedException {
+    public void WebSetup() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Jihan SQA\\Desktop\\P_Files\\BSTA\\Selenium_Java_TestNG\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -36,14 +40,17 @@ public class OrangeHRM {
         //Thread.sleep(3000);
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         //Assert.assertTrue(driver.getTitle().contains("OrangeHRM"));
-
+        System.out.println("Application started......");
+        ExtentTest test = this.extent.createTest("My BL Application has been launched", "Will complete the three(03) different test scenarios");
+        test.log(Status.INFO, "Successfully Navigated to the Read & Accept Screen");
 
     }
 
     //@Test(priority = 0)
-    public static void OrangeHRMLogin() throws Exception {
+    public void OrangeHRMLogin() throws Exception {
 
         MyScreenRecorder.startRecording("");
+        this.extent.createTest("");
 
 
         driver.findElement(By.xpath("//input[@id='txtUsername']")).click();
