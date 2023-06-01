@@ -27,7 +27,7 @@ public class ITestListener  implements org.testng.ITestListener {
     public void onTestFailure(ITestResult Result) {
 
         try {
-            GetScreenshot.capture(OrangeHRM.driver, Result.getName());
+            GetScreenshot.capture(DemoBlaze.driver, Result.getName());
         } catch (IOException e) {
             e.printStackTrace();
         }

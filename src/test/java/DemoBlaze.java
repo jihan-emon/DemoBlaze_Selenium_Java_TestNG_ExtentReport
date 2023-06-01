@@ -13,7 +13,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
@@ -21,17 +20,16 @@ import java.util.concurrent.TimeUnit;
 
 @Listeners (ITestListener.class)
 
-public class OrangeHRM {
+public class DemoBlaze {
 
     public static WebDriver driver;
-    //static  String BaseURL = "https://opensource-demo.orangehrmlive.com/";
-    static  String BaseURL = "https://jpg2pdf.com/";
+    static  String BaseURL = "https://www.demoblaze.com/index.html";
     static JavascriptExecutor js;
     private ExtentReports extent;
 
     @BeforeTest
     public void WebSetup() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Jihan SQA\\Desktop\\P_Files\\BSTA\\Selenium_Java_TestNG\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "E:\\web-automation\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get((BaseURL));
@@ -41,13 +39,13 @@ public class OrangeHRM {
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         //Assert.assertTrue(driver.getTitle().contains("OrangeHRM"));
         System.out.println("Application started......");
-        ExtentTest test = this.extent.createTest("My BL Application has been launched", "Will complete the three(03) different test scenarios");
+        ExtentTest test = this.extent.createTest("Application has been launched", "Will complete the three(03) different test scenarios");
         test.log(Status.INFO, "Successfully Navigated to the Read & Accept Screen");
 
     }
 
-    //@Test(priority = 0)
-    public void OrangeHRMLogin() throws Exception {
+    @Test(priority = 0)
+    public void DemoBlazeLogin() throws Exception {
 
         MyScreenRecorder.startRecording("");
         this.extent.createTest("");
