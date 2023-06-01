@@ -36,8 +36,8 @@ public class DemoBlaze {
 //        driver.manage().deleteAllCookies();
 //        driver.navigate().refresh();
         //Thread.sleep(3000);
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        //Assert.assertTrue(driver.getTitle().contains("OrangeHRM"));
+        //driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        Assert.assertTrue(driver.getTitle().contains("STORE"));
         System.out.println("Application started......");
         ExtentTest test = this.extent.createTest("Application has been launched", "Will complete the three(03) different test scenarios");
         test.log(Status.INFO, "Successfully Navigated to the Read & Accept Screen");
